@@ -36,7 +36,7 @@ def get_data(ID, name=None, table='spot_daily', frm=None, to=None, conversion=No
         elif table in ['fut_daily']:
             sql = "SELECT date, close FROM %s WHERE instID='%s'" % (table, ID)
         elif table in ['_fut_daily']:
-            sql = "SELECT timestamp, close FROM %s WHERE instID = '%s'" % (table, ID)
+            sql = "SELECT datetime, close FROM %s WHERE instID = '%s'" % (table, ID)
         elif table in ['fx_daily']:
             sql = "SELECT date, rate FROM %s WHERE tenor='0W' AND ccy='%s'" % (table, ID)
         else:

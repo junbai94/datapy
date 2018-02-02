@@ -52,9 +52,9 @@ def ATR(df, n):
     return df
 
 #Bollinger Bands  
-def BBANDS(df, n):  
-    MA = pd.Series(pd.rolling_mean(df['Close'], n))  
-    MSD = pd.Series(pd.rolling_std(df['Close'], n))  
+def BBANDS(df, n, column):
+    MA = pd.Series(pd.rolling_mean(df[column], n))
+    MSD = pd.Series(pd.rolling_std(df[column], n))
     b1 = MSD + MA 
     B1 = pd.Series(b1, name = 'BollingerU_' + str(n))  
     df = df.join(B1)  
